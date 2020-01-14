@@ -1,7 +1,7 @@
 # Prototype-TephraDB-Japan
 
 All the scripts were written by Shimpei Uesawa. 
-(Last update: 29, November 2019)
+(Last update: 14, January 2020)
 See the publication in detail (doi:).
 
 I recommend running the program with Windows (32bit).
@@ -17,7 +17,7 @@ Workflow using the Tephra database:
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied.
 5. Set the locality name and coordinate.
-6. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path.
+6. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path using a text editor.
 7. Run the entire script of R.
 
 Workflow using ArcGIS:
@@ -27,5 +27,5 @@ If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves usi
 3. Open the file entitled "Extract_MultiValues_TO_Points_ver2.py" in the folder entitled "For ArcGIS" using a text editor.
 4. Copy and paste to Python Console of ArcGIS and run the script. If you use your locality shapefile, revise the PointFeature file name to your file name in the text.
 5. Write down the attribute table of "PrefOffices.shp" as csv to the "TephraDB_Prototype_ver1" folder entitled "combinedPointValue.csv".
-6. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path.
+6. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path using a text editor.
 7. Run the script with the Python Console of ArcGIS.
