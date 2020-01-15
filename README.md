@@ -2,7 +2,7 @@
 
 All the scripts were written by Shimpei Uesawa. 
 (Last update: 14, January 2020)
-See the publication in detail (doi:).
+See the publication in detail (doi:in preparation).
 
 I recommend running the program with Windows (32bit).
 
