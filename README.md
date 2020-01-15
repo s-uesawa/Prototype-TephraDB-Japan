@@ -1,6 +1,6 @@
 # Prototype-TephraDB-Japan
 
-All the scripts were written by Shimpei Uesawa. 
+All the scripts were written by Shimpei Uesawa@CRIEPI. 
 (Last update: 14, January 2020)
 See the publication in detail (doi:in preparation).
 
