@@ -12,7 +12,7 @@ Preparation for processing:
 2. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions.
 
 Workflow using the Tephra database:
-1. Copy the folder entitled "TephraDB_Prototype_ver1" to your computer. The dataset can be downloaded from http://doi.org/10.5281/zenodo.3608346
+1. Copy the folder entitled "TephraDB_Prototype_ver1" to your computer. The dataset can be downloaded at http://doi.org/10.5281/zenodo.3608346
 2. Open the file entitled "Tephra_Hazard_Curve_Generator.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied.
