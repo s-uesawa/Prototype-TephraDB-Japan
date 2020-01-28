@@ -19,7 +19,7 @@ Workflow using the Tephra database:
 4. Revise the directory to the path of the folder that you copied.
 5. Set the locality name and coordinate.
 6. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path using a text editor.
-7. Run the entire script of R.
+7. Run the entire script of R. (If you can not run the python with R, you can run the python script edited F = "Place name " where you want to draw the hazard curve with spyder etc.)
 
 Workflow using ArcGIS:
 If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves using the Python Console of ArcGIS and view all the raster data of tephra distributions.
