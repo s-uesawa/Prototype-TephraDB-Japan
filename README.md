@@ -3,7 +3,7 @@
 All the scripts were written by Shimpei Uesawa@CRIEPI. 
 (Last update: 14, January 2020)
 
-This is the toolkit of drawing hazard curves for evaluating the tephra fall load hazard. 
+This is the toolkit of drawing hazard curves for evaluating the tephra fall load hazard with Tephra fall database in Japan. 
 See the publication in detail (doi: in preparation).
 
 I recommend running the program with Windows (32bit).
