@@ -4,7 +4,7 @@ All the scripts were written by Shimpei Uesawa@CRIEPI, Japan.
 (Last update: 07, February 2020)
 
 This is the toolkit of drawing hazard curves for evaluating the tephra fall load hazard with Tephra fall database in Japan. 
-See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; doi: in preparation).
+See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; doi: in preparation). The results at 47 prefectural offices are available at https://doi.org/10.5281/zenodo.3608350.
 
 I recommend running the program with Windows (32bit).
 
