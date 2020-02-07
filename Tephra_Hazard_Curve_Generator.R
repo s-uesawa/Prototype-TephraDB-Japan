@@ -1557,7 +1557,7 @@ write.csv(combinePointValue,"combinedPointValue.csv", row.names=FALSE, quote=FAL
 ### Connecting python ####
 pyConnect("C:\\Users\\Your_dir\\Anaconda3\\python.exe") #### Please set your dirctry installed python ###
 
-if (pyIsConnected() ){pyExec('F = "Tokyo"')} ### Please input locality name where you want to make a hazard curve ####
+if (pyIsConnected() ){pyExec('L = "Tokyo"')} ### Please input locality name where you want to make a hazard curve ####
 
 if (pyIsConnected() ){pyExecfile('Tephra_fall_Hazard.py')}
 
