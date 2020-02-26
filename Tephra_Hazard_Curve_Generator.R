@@ -20,7 +20,7 @@ PrefName <- data.frame(Name=c("Hokkaido","Aomori","Akita","Iwate","Miyagi","Yama
 ### Name and coordinate table ###
 listy <- cbind(xy,PrefName)
 
-## Reading raters of tephra distribution maps form database ####
+## Reading rasters of tephra distribution maps form database ####
 # 1000years
 r1 <- rgdal::readGDAL("Suwanose_SUM.tif")
 r2 <- rgdal::readGDAL("My_a2.tif")
