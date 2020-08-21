@@ -14,7 +14,7 @@ xy <- points@coords ### Set coordinate from a shapefile.
 ### xy <- cbind(lat, long)
 
 ### Give names of the positions. Please check the order of coordinate ###
-PrefName <- data.frame(Name=c("Hokkaido","Aomori","Akita","Iwate","Miyagi","Yamagata","Niigata","Fukushima","Toyama","Nagano","Ishikawa","Tochigi","Gunma","Ibaraki","Fukui","Saitama","Tokyo","Yamanashi","Chiba","Tottori","Shimane","Kanagawa","Gifu","Aichi","Kyoto","Shiga","Shizuoka","Mie","Hyogo","Osaka","Nara","Okayama","Hiroshima","Kagawa","Wakayama","Yamaguchi","Tokushima","Ehime","Fukuoka","Kochi","Shiga","Oita","Kumamoto","Nagasaki","Miyazaki","Kagoshima","Okinawa"))
+PrefName <- data.frame(Name=c("Hokkaido","Aomori","Akita","Iwate","Miyagi","Yamagata","Niigata","Fukushima","Toyama","Nagano","Ishikawa","Tochigi","Gunma","Ibaraki","Fukui","Saitama","Tokyo","Yamanashi","Chiba","Tottori","Shimane","Kanagawa","Gifu","Aichi","Kyoto","Shiga","Shizuoka","Mie","Hyogo","Osaka","Nara","Okayama","Hiroshima","Kagawa","Wakayama","Yamaguchi","Tokushima","Ehime","Fukuoka","Kochi","Saga","Oita","Kumamoto","Nagasaki","Miyazaki","Kagoshima","Okinawa"))
 
 
 ### Name and coordinate table ###
