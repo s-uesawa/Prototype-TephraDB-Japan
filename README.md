@@ -16,7 +16,7 @@ Workflow using the Tephra database:
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied.
 5. Set the locality name and coordinate.
-6. Edit line Loc <- "Place name (Default "Tokyo") " where you want to draw the prototype hazard curve.
+6. Edit Loc <- "Place name (Default "Tokyo") " (line 2065) where you want to draw the prototype hazard curve.
 7. Run the entire script of R.
 
 cf.) Plotting with python for better scientific plots:
