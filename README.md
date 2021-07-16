@@ -4,7 +4,8 @@ All the scripts were written by Shimpei Uesawa@CRIEPI, Japan.
 (Last update: 16, July 2021, Please see tags for older version.)
 
 This is the toolkit of drawing hazard curves for evaluating the tephra fall load hazard with tephra fall database in Japan. 
-See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; https://dx.doi.org/10.21203/rs.2.23106/v1). The results at 47 prefectural offices are available at https://doi.org/10.5281/zenodo.3608350.
+See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; https://dx.doi.org/10.21203/rs.2.23106/v1). 
+The results at 47 prefectural offices are available at https://doi.org/10.5281/zenodo.3608350.
 
 Preparation for processing:
 1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions.
@@ -24,8 +25,8 @@ cf.) Plotting with python for better scientific plots
 
 Workflow using ArcGIS:
 If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves using the Python Console of ArcGIS and view all the raster data of tephra distributions.
-1. Copy the folder entitled "TephraDB_Prototype_ver1" to your computer. 
-2. Open all the raster data and shapefiles ("PrefOffices.shp") with ArcGIS in the folder entitled "TephraDB_Prototype_ver1". Any locality shapefile can be used for the raster sampling.
+1. Copy the folder entitled "TephraDB_Prototype_ver1.1" to your computer. 
+2. Open all the raster data and shapefiles ("PrefOffices.shp") with ArcGIS in the folder entitled "TephraDB_Prototype_ver1.1". Any locality shapefile can be used for the raster sampling.
 3. Open the file entitled "Extract_MultiValues_TO_Points_ver2.py" in the folder entitled "For ArcGIS" using a text editor.
 4. Copy and paste to Python Console of ArcGIS and run the script. If you use your locality shapefile, revise the PointFeature file name to your file name in the text.
 5. Write down the attribute table of "PrefOffices.shp" as csv to the "TephraDB_Prototype_ver1" folder entitled "combinedPointValue.csv".
