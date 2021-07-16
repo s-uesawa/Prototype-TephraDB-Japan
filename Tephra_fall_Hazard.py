@@ -8,35 +8,12 @@ Created on Mon Feb 18 18:11:05 2019
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
 from scipy.special import factorial
 from scipy import stats
 
-#F = "Tokyo"   
-### If you cannot connect with R to Python, please input the name of the place where you want to draw the hazard curve and delete the '#' before 'F'. Run directly with Pyhon.
+F = "Naha"
 
-df1 = pd.read_csv('C:/Users/your_dir/TephraDB_Prototype_ver1/combinedPointValue.csv') 
-#### Please enter your directory. Don't change the last file name.
-
-df2 = pd.read_csv('C:/Users/Your_dir/TephraDB_Prototype_ver1/No_and_age_list_fin.csv')
-#### Please enter your directory. Don't change the last file name.
-df3 = df1.fillna(0)
-df4 = df3.T
-
-df4.columns = df4.iloc[0]
-df5 = df4.drop(labels='Name')
-
-df6 = df5.reset_index()
-df6['index'] = pd.to_numeric(df6['index'].str.replace('No_', ''))
-
-df7 = df2.sort_values("No.")
-df8 = df6.sort_values("index")
-df9 = df8.set_index("index")
-df10 = df7.set_index("No.")
-
-df = pd.merge(df9, df10, how='outer', left_index=True, right_index=True)
-df.to_csv('C:/Users//Your_dir/TephraDB_Prototype_ver1/Tephra_Fall_History.csv')
-#### Please enter your directory. Don't change the last file name.
+df = pd.read_csv('C:/Users/uepivolc/Desktop/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv')
 
 df_bool1 = df.query('(Year_ka >=0)&(Year_ka <10)')
 df_bool2 = df.query('(Year_ka >=10)&(Year_ka <20)')
@@ -55,8 +32,8 @@ df_bool14 = df.query('(Year_ka >=130)&(Year_ka <140)')
 df_bool15 = df.query('(Year_ka >=140)&(Year_ka<150)')
 df_boolTot = df.query('(Year_ka<150)')
 
-w3 = np.linspace(1,2800,280)
-w2 = np.array([0,0.1])
+w3 = np.linspace(10,3000,300)
+w2 = np.array([0,0.1,1])
 w = np.append(w2,w3)
 
 J1 = []
@@ -189,6 +166,15 @@ JTot12np = np.vstack((JTot11np,J13np))
 JTot13np = np.vstack((JTot12np,J14np))
 JTot14np = np.vstack((JTot13np,J15np))
 
+Cum_freq_150 = []
+
+n = np.linspace(0,302,303, dtype=int)
+
+for i in n:
+    J = JTot14np[:,i]
+    Cum = sum(J)
+    Cum_freq_150.append(Cum)
+    
 Z = []
 Zav = []
 Parameters = []
@@ -202,6 +188,7 @@ Pc = []
 n = len(w)
 n2 = range(0,n)
 
+# for CDF
 def poisson(k, lamb):
     return (lamb**k/factorial(k)*np.exp(-lamb))
 
@@ -260,6 +247,7 @@ for i in n2:
     ci = stats.t.interval(alpha,  len(Zav29)- 1, loc=mean_val, scale=sem_val)
     Conf_95.append(ci)
 
+# for exceedance probability
 def poisson2(t, lamb2):
     return 1 - np.exp(-lamb2*t)
 
@@ -283,112 +271,27 @@ for i in n2:  #Zav or Parameters calculation of annual exceeding probability
     a = poisson2(1, min_95_2)
     Prob3.append(a) 
 
-#Exponential decay
-def func1(x1, a1, b1):
-    return np.exp(-b1*x1)*a1
-
-popt1, pcov1 = curve_fit(func1, w, Prob1)
-popt1
-
-#Weibull proposed by Tatsumi and Suzuki
-def func2(x2, a2, b2, c2):
-    return np.exp(-(x2/a2)**b2)*c2
-
-popt2, pcov2 = curve_fit(func2, w, Prob1)
-popt2
-
-#R^2 for func1
-r1 = Prob1 - func1(w, *popt1)
-rr1 = Prob1 - np.average(Prob1)
-R21 = 1 -(sum((r1)**2)/(sum((rr1)**2)))
-
-
-#R^2 for func2
-r2 = Prob1 - func2(w, *popt2)
-rr2 = Prob1 - np.average(Prob1)
-R22 = 1 -(sum((r2)**2)/(sum((rr2)**2)))
-
-
-#likelihood function for func1
-numpara1 = 1
- 
-def func4(x4, lamda4):
-    return np.log(lamda4)*len(x4) - lamda4*sum(x4)
-
-x31 = []
-
-for i in w:
-    if func1(i, *popt1) > 10**(-6):
-        x31.append(i)
-    else:
-        print('end')
-
-#Muximum likelyhood lamda for func1
-
-AIC1 = (-2)*func4(x31, popt1[1]) + 2*numpara1
-AICc1 = AIC1 + ((2*numpara1*(numpara1+1))/(len(w)-numpara1- 1))
-
-#likelihood function for func2
-numpara2 = 2
-
-x32 = []
-LE = []
-H = []
-I = []
-
-for i in w:
-    if func2(i, *popt2) > 10**(-6):
-        x32.append(i)
-    else:
-        print('end')
-
-N = len(x32)
-
-for i in x32:
-    G = np.log(i)
-    H.append(G)
-
-for i in x32:
-    K = (i/popt2[0])**popt2[1]    
-    I.append(K)
-
-H2 = H[1:]
-
-#Muximum likelyhood lamda for func2
-MLE = N*np.log(popt2[1]) - popt2[1]*N*np.log(popt2[0]) + (popt2[1]-1)*sum(H2) - sum(I)
-
-AIC2 = (-2)*MLE + 2*numpara2
-AICc2 = AIC2 + ((2*numpara2*(numpara2 + 1))/(len(x32) - numpara2 - 1))
-
-print('Constants and coefficents:')
-print('Exp. Decay, [a1, b1]=', popt1) # display in the order of [a1, b1]
-print('Weibull, [b2, c2, a2]=', popt2) # display in the order of [b2, c2, a2]
-
-print('R^2=')
-print('Exp. Decay =', R21)
-print('Weibull =', R22)
-
-print('AIC=')
-print('Exp. Decay', AIC1)
-print('Weibull', AIC2)
-
-print('AICc=')
-print('Exp. Decay', AICc1)
-print('Weibull', AICc2)
+dfCum = pd.DataFrame(Cum_freq_150)
 
 w2 = np.linspace(1,2801,281)
 
-plt.figure(figsize=(5,5))
-plt.loglog(w, Prob1, color='black')
-plt.loglog(w, Prob2, '--', color='black', linewidth=0.5)
-plt.loglog(w, Prob3, '--', color='black', linewidth=0.5)
-plt.ylim(0.000001, 0.001)
-plt.xlim(0,3000)
-plt.title(F)
-plt.xlabel(r'Tephra fall load $\mathrm{(kg/m^2)}$')
-plt.ylabel('Annual exceedance probability')
-plt.loglog(w, func1(w, *popt1), 'r--', label='Exponential')
-plt.loglog(w, func2(w, *popt2), 'b--', label='Weibull')
-plt.legend()
-plt.savefig(F, dpi=150)
-plt.show()
+fig = plt.figure(figsize=(10,5))
+ax2, ax= fig.subplots(nrows=1, ncols=2)
+
+ax.loglog(w, Prob1, color='black')
+ax.loglog(w, Prob2, '--', color='black', linewidth=0.5)
+ax.loglog(w, Prob3, '--', color='black', linewidth=0.5)
+ax.set_ylim(0.000001, 0.001)
+ax.set_xlim(0.1,3000)
+ax.set_title(F)
+ax.set_xlabel(r'Tephra fall load $\mathrm{(kg/m^2)}$')
+ax.set_ylabel('Pseudo annual exceedance probability')
+
+ax2.semilogx(w, Cum_freq_150, color='black')
+ax2.set_ylim(0, 25)
+ax2.set_xlim(0.1,3000)
+ax2.set_title(F)
+ax2.set_xlabel(r'Tephra fall load $\mathrm{(kg/m^2)}$')
+ax2.set_ylabel('Cumulative frequency for the past 150 ka')
+
+fig.show()
