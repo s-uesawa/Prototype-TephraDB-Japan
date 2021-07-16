@@ -16,13 +16,13 @@ Workflow using the Tephra database:
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied.
 5. Set the locality name and coordinate.
-6. Edit Loc <- "Place name (Default "Tokyo") " (line 2065) where you want to draw the prototype hazard curve.
+6. Edit Loc <- "Place name (default "Tokyo") " (line 2065) where you want to draw the prototype hazard curve.
 7. Run the entire script of R.
 
 cf.) Plotting with python for better scientific plots:
 1. Install Python 3 (I recommend using Anaconda). Please refer to the website https://www.anaconda.com/ for installation instructions. 
 2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter.py" and revise the directory to your path using a text editor. Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
-3. Edit F = "Place name (Default "Tokyo") " (line 14) where you want to draw the prototype hazard curve with spyder etc..
+3. Edit F = "Place name (default "Tokyo") " (line 14) where you want to draw the prototype hazard curve with spyder etc..
 4. Run the entire script of Python.
 
 Workflow using ArcGIS:
