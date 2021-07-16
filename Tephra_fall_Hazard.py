@@ -13,7 +13,7 @@ from scipy import stats
 
 F = "Naha"
 
-df = pd.read_csv('C:/Users/uepivolc/Desktop/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv')
+df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
 
 df_bool1 = df.query('(Year_ka >=0)&(Year_ka <10)')
 df_bool2 = df.query('(Year_ka >=10)&(Year_ka <20)')
