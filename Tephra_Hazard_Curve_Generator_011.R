@@ -2,11 +2,12 @@ library(magrittr)
 library(raster)
 library(rgdal)
 library(sp)
-library(PythonInR)
 
-setwd("C:\\Users\\Your_dir\\TephraDB_Prototype_ver1") ### Please enter your directory.
+setwd("C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1") ### Please input your directory.
+
 points <- rgdal::readOGR("PrefOffices.shp")  ### Reading shapefile of prefectural offices prepared by GIS ###
-xy <- points@coords ### Set coordinate from a shapefile.
+
+### Set coordinate from a shapefile.
 
 #### You can input arbitrary locality x, y coordinate using below as well. ####
 ### lat <- c(127.681, 130.5581, 134.6126)
@@ -14,11 +15,11 @@ xy <- points@coords ### Set coordinate from a shapefile.
 ### xy <- cbind(lat, long)
 
 ### Give names of the positions. Please check the order of coordinate ###
-PrefName <- data.frame(Name=c("Hokkaido","Aomori","Akita","Iwate","Miyagi","Yamagata","Niigata","Fukushima","Toyama","Nagano","Ishikawa","Tochigi","Gunma","Ibaraki","Fukui","Saitama","Tokyo","Yamanashi","Chiba","Tottori","Shimane","Kanagawa","Gifu","Aichi","Kyoto","Shiga","Shizuoka","Mie","Hyogo","Osaka","Nara","Okayama","Hiroshima","Kagawa","Wakayama","Yamaguchi","Tokushima","Ehime","Fukuoka","Kochi","Saga","Oita","Kumamoto","Nagasaki","Miyazaki","Kagoshima","Okinawa"))
+Name <- points@data$City_Name ####Names of cities where prefectural offices are lcated
 
-
-### Name and coordinate table ###
-listy <- cbind(xy,PrefName)
+x <- points@data$X ## for Pref Offices
+y <- points@data$Y ## for Pref Offices
+xy <- cbind(x,y) ## for Pref Offices
 
 ## Reading rasters of tephra distribution maps form database ####
 # 1000years
@@ -256,7 +257,7 @@ r229 <- rgdal::readGDAL("Km9c.tif")
 r230 <- rgdal::readGDAL("Km9b.tif")
 r231 <- rgdal::readGDAL("Km9a.tif")
 r232 <- rgdal::readGDAL("Ik.tif")
-r233 <- rgdal::readGDAL("K_Ah_sum.tif")
+r233 <- rgdal::readGDAL("K_Ah_SUM.tif")
 r234 <- rgdal::readGDAL("Zn.tif")
 
 #>10000
@@ -299,7 +300,7 @@ r270 <- rgdal::readGDAL("Aso2_3Q.tif")
 r271 <- rgdal::readGDAL("Aso3_4Blayer.tif")
 r272 <- rgdal::readGDAL("Aso3_4Clayer.tif")
 r273 <- rgdal::readGDAL("Aso3_4Dlayer.tif")
-r274 <- rgdal::readGDAL("AT_sum.tif")
+r274 <- rgdal::readGDAL("AT_SUM.tif")
 r275 <- rgdal::readGDAL("Ata_Mr.tif")
 r276 <- rgdal::readGDAL("Ata.tif")
 r277 <- rgdal::readGDAL("Ata_th.tif")
@@ -1035,6 +1036,510 @@ r501w <- raster(r501)
 r502w <- raster(r502)
 r503w <- raster(r503)
 
+crs(r1w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r2w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r3w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r4w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r5w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r6w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r7w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r8w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r9w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r10w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r11w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r12w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r13w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r14w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r15w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r16w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r17w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r18w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r19w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r20w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r21w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r22w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r23w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r24w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r25w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r26w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r27w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r28w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r29w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r30w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r31w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r32w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r33w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r34w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r35w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r36w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r37w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r38w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r39w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r40w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r41w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r42w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r43w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r44w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r45w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r46w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r47w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r48w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r49w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r50w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r51w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r52w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r53w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r54w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r55w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r56w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r57w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r58w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r59w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r60w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r61w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r62w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r63w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r64w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r65w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r66w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r67w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r68w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r69w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r70w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r71w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r72w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r73w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r74w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r75w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r76w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r77w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r78w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r79w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r80w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r81w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r82w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r83w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r84w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r85w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r86w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r87w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r88w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r89w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r90w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r91w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r92w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r93w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r94w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r95w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r96w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r97w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r98w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r99w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r100w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r101w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r102w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r103w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r104w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r105w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r106w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r107w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r108w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r109w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r110w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r111w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r112w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r113w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r114w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r115w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r116w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r117w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r118w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r119w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r120w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r121w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r122w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r123w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r124w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r125w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r126w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r127w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r128w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r129w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r130w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r131w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r132w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r133w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r134w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r135w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r136w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r137w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r138w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r139w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r140w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r141w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r142w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r143w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r144w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r145w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r146w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r147w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r148w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r149w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r150w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r151w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r152w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r153w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r154w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r155w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r156w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r157w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r158w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r159w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r160w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r161w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r162w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r163w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r164w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r165w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r166w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r167w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r168w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r169w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r170w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r171w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r172w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r173w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r174w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r175w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r176w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r177w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r178w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r179w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r180w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r181w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r182w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r183w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r184w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r185w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r186w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r187w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r188w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r189w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r190w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r191w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r192w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r193w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r194w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r195w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r196w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r197w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r198w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r199w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r200w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r201w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r202w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r203w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r204w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r205w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r206w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r207w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r208w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r209w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r210w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r211w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r212w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r213w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r214w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r215w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r216w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r217w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r218w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r219w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r220w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r221w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r222w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r223w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r224w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r225w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r226w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r227w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r228w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r229w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r230w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r231w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r232w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r233w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r234w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r235w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r236w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r237w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r238w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r239w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r240w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r241w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r242w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r243w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r244w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r245w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r246w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r247w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r248w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r249w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r250w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r251w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r252w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r253w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r254w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r255w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r256w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r257w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r258w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r259w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r260w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r261w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r262w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r263w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r264w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r265w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r266w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r267w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r268w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r269w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r270w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r271w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r272w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r273w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r274w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r275w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r276w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r277w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r278w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r279w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r280w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r281w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r282w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r283w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r284w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r285w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r286w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r287w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r288w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r289w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r290w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r291w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r292w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r293w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r294w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r295w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r296w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r297w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r298w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r299w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r300w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r301w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r302w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r303w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r304w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r305w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r306w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r307w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r308w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r309w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r310w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r311w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r312w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r313w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r314w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r315w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r316w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r317w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r318w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r319w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r320w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r321w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r322w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r323w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r324w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r325w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r326w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r327w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r328w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r329w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r330w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r331w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r332w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r333w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r334w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r335w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r336w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r337w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r338w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r339w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r340w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r341w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r342w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r343w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r344w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r345w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r346w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r347w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r348w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r349w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r350w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r351w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r352w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r353w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r354w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r355w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r356w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r357w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r358w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r359w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r360w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r361w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r362w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r363w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r364w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r365w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r366w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r367w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r368w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r369w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r370w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r371w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r372w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r373w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r374w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r375w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r376w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r377w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r378w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r379w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r380w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r381w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r382w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r383w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r384w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r385w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r386w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r387w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r388w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r389w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r390w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r391w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r392w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r393w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r394w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r395w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r396w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r397w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r398w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r399w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r400w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r401w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r402w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r403w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r404w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r405w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r406w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r407w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r408w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r409w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r410w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r411w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r412w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r413w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r414w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r415w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r416w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r417w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r418w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r419w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r420w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r421w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r422w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r423w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r424w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r425w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r426w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r427w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r428w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r429w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r430w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r431w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r432w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r433w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r434w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r435w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r436w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r437w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r438w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r439w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r440w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r441w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r442w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r443w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r444w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r445w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r446w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r447w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r448w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r449w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r450w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r451w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r452w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r453w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r454w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r455w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r456w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r457w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r458w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r459w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r460w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r461w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r462w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r463w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r464w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r465w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r466w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r467w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r468w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r469w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r470w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r471w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r472w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r473w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r474w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r475w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r476w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r477w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r478w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r479w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r480w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r481w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r482w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r483w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r484w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r485w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r486w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r487w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r488w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r489w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r490w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r491w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r492w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r493w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r494w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r495w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r496w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r497w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r498w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r499w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r500w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r501w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r502w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+crs(r503w) <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+
 ### Extracting values from tephra fall distribution maps at sampling localities ###
 # 1000years
 No_1 <- extract(r1w, xy, method='simple', buffer=NULL)
@@ -1546,20 +2051,343 @@ No_271 <- extract(r502w, xy, method='simple', buffer=NULL)
 No_436 <- extract(r503w, xy, method='simple', buffer=NULL)
 
 ####Taking times. Please wait...####
-combinePointValue <- cbind(PrefName, No_1,No_507,No_508,No_545,No_546,No_547,No_509,No_511,No_502,No_501,No_500,No_516,No_181,No_183,No_182,No_483,No_488,No_465,No_461,No_460,No_459,No_458,No_457,No_456,No_455,No_463,No_462,No_464,No_439,No_438,No_437,No_440,No_441,No_442,No_443,No_444,No_434,No_397,No_398,No_399,No_395,No_396,No_394,No_393,No_400,No_401,No_381,No_372,No_373,No_374,No_375,No_376,No_377,No_378,No_379,No_380,No_371,No_294,No_293,No_284,No_281,No_255,No_254,No_238,No_226,No_225,No_200,No_201,No_202,No_191,No_175,No_168,No_142,No_82,No_78,No_76,No_75,No_66,No_65,No_64,No_52,No_51,No_48,No_50,No_49,No_47,No_40,No_39,No_41,No_551,No_548,No_519,No_520,No_521,No_522,No_523,No_524,No_517,No_503,No_498,No_497,No_496,No_495,No_492,No_445,No_446,No_447,No_418,No_417,No_416,No_422,No_421,No_420,No_419,No_435,No_402,No_403,No_404,No_405,No_406,No_407,No_408,No_409,No_410,No_414,No_411,No_412,No_413,No_415,No_382,No_383,No_384,No_385,No_386,No_387,No_388,No_389,No_390,No_391,No_392,No_353,No_354,No_355,No_356,No_357,No_328,No_329,No_326,No_325,No_322,No_319,No_315,No_295,No_296,No_297,No_298,No_299,No_290,No_289,No_285,No_286,No_287,No_288,No_261,No_260,No_259,No_258,No_257,No_256,No_248,No_240,No_241,No_239,No_237,No_214,No_213,No_212,No_203,No_186,No_185,No_184,No_180,No_179,No_178,No_177,No_176,No_161,No_159,No_160,No_158,No_157,No_155,No_156,No_154,No_152,No_151,No_150,No_149,No_148,No_147,No_146,No_145,No_144,No_143,No_111,No_110,No_109,No_108,No_84,No_59,No_58,No_57,No_56,No_55,No_54,No_53,No_44,No_43,No_42,No_26,No_18,No_17,No_16,No_15,No_25,No_24,No_23,No_22,No_19,No_20,No_21,No_14,No_6,No_153,No_37,No_33,No_35,No_34,No_272,No_80,No_81,No_262,No_270,No_265,No_266,No_267,No_264,No_269,No_263,No_268,No_216,No_220,No_223,No_218,No_219,No_221,No_217,No_292,No_291,No_134,No_518,No_210,No_205,No_209,No_206,No_72,No_67,No_68,No_74,No_73,No_69,No_70,No_71,No_27,No_12,No_11,No_13,No_251,No_252,No_250,No_253,No_129,No_528,No_529,No_530,No_531,No_533,No_534,No_535,No_243,No_242,No_532,No_107,No_137,No_99,No_98,No_102,No_100,No_95,No_274,No_101,No_97,No_106,No_480,No_96,No_481,No_482,No_163,No_162,No_164,No_428,No_427,No_426,No_425,No_424,No_423,No_430,No_429,No_433,No_432,No_431,No_105,No_273,No_132,No_131,No_140,No_141,No_139,No_138,No_136,No_38,No_133,No_135,No_128,No_448,No_104,No_103,No_215,No_280,No_308,No_309,No_304,No_305,No_306,No_307,No_310,No_302,No_311,No_312,No_313,No_300,No_301,No_303,No_279,No_117,No_122,No_199,No_130,No_10,No_116,No_120,No_115,No_119,No_118,No_121,No_127,No_114,No_123,No_8,No_126,No_89,No_113,No_514,No_513,No_515,No_198,No_83,No_94,No_32,No_112,No_79,No_62,No_63,No_60,No_61,No_470,No_471,No_472,No_473,No_474,No_197,No_525,No_526,No_235,No_314,No_527,No_224,No_91,No_196,No_193,No_194,No_195,No_192,No_222,No_228,No_229,No_234,No_227,No_230,No_231,No_232,No_512,No_244,No_245,No_449,No_454,No_278,No_277,No_276,No_536,No_541,No_542,No_543,No_544,No_233,No_537,No_538,No_539,No_540,No_249,No_236,No_208,No_207,No_172,No_173,No_169,No_171,No_174,No_170,No_358,No_365,No_364,No_363,No_362,No_361,No_360,No_359,No_367,No_366,No_370,No_369,No_368,No_499,No_9,No_93,No_87,No_504,No_505,No_90,No_88,No_475,No_479,No_476,No_477,No_478,No_86,No_46,No_45,No_204,No_187,No_125,No_350,No_337,No_351,No_342,No_330,No_331,No_332,No_348,No_334,No_347,No_344,No_343,No_349,No_345,No_346,No_352,No_453,No_333,No_189,No_188,No_550,No_124,No_92,No_283,No_282,No_466,No_467,No_468,No_167,No_166,No_271,No_436)
+combinePointValue <- cbind(Name,No_1,No_6,No_8,No_9,No_10,No_11,No_12,No_13,No_14,No_15,No_16,No_17,No_18,No_19,No_20,No_21,No_22,No_23,No_24,No_25,No_26,No_27,No_32,No_33,No_34,No_35,No_37,No_38,No_39,No_40,No_41,No_42,No_43,No_44,No_45,No_46,No_47,No_48,No_49,No_50,No_51,No_52,No_53,No_54,No_55,No_56,No_57,No_58,No_59,No_60,No_61,No_62,No_63,No_64,No_65,No_66,No_67,No_68,No_69,No_70,No_71,No_72,No_73,No_74,No_75,No_76,No_78,No_79,No_80,No_81,No_82,No_83,No_84,No_86,No_87,No_88,No_89,No_90,No_91,No_92,No_93,No_94,No_95,No_96,No_97,No_98,No_99,No_100,No_101,No_102,No_103,No_104,No_105,No_106,No_107,No_108,No_109,No_110,No_111,No_112,No_113,No_114,No_115,No_116,No_117,No_118,No_119,No_120,No_121,No_122,No_123,No_124,No_125,No_126,No_127,No_128,No_129,No_130,No_131,No_132,No_133,No_134,No_135,No_136,No_137,No_138,No_139,No_140,No_141,No_142,No_143,No_144,No_145,No_146,No_147,No_148,No_149,No_150,No_151,No_152,No_153,No_154,No_155,No_156,No_157,No_158,No_159,No_160,No_161,No_162,No_163,No_164,No_166,No_167,No_168,No_169,No_170,No_171,No_172,No_173,No_174,No_175,No_176,No_177,No_178,No_179,No_180,No_181,No_182,No_183,No_184,No_185,No_186,No_187,No_188,No_189,No_191,No_192,No_193,No_194,No_195,No_196,No_197,No_198,No_199,No_200,No_201,No_202,No_203,No_204,No_205,No_206,No_207,No_208,No_209,No_210,No_212,No_213,No_214,No_215,No_216,No_217,No_218,No_219,No_220,No_221,No_222,No_223,No_224,No_225,No_226,No_227,No_228,No_229,No_230,No_231,No_232,No_233,No_234,No_235,No_236,No_237,No_238,No_239,No_240,No_241,No_242,No_243,No_244,No_245,No_248,No_249,No_250,No_251,No_252,No_253,No_254,No_255,No_256,No_257,No_258,No_259,No_260,No_261,No_262,No_263,No_264,No_265,No_266,No_267,No_268,No_269,No_270,No_271,No_272,No_273,No_274,No_276,No_277,No_278,No_279,No_280,No_281,No_282,No_283,No_284,No_285,No_286,No_287,No_288,No_289,No_290,No_291,No_292,No_293,No_294,No_295,No_296,No_297,No_298,No_299,No_300,No_301,No_302,No_303,No_304,No_305,No_306,No_307,No_308,No_309,No_310,No_311,No_312,No_313,No_314,No_315,No_319,No_322,No_325,No_326,No_328,No_329,No_330,No_331,No_332,No_333,No_334,No_337,No_342,No_343,No_344,No_345,No_346,No_347,No_348,No_349,No_350,No_351,No_352,No_353,No_354,No_355,No_356,No_357,No_358,No_359,No_360,No_361,No_362,No_363,No_364,No_365,No_366,No_367,No_368,No_369,No_370,No_371,No_372,No_373,No_374,No_375,No_376,No_377,No_378,No_379,No_380,No_381,No_382,No_383,No_384,No_385,No_386,No_387,No_388,No_389,No_390,No_391,No_392,No_393,No_394,No_395,No_396,No_397,No_398,No_399,No_400,No_401,No_402,No_403,No_404,No_405,No_406,No_407,No_408,No_409,No_410,No_411,No_412,No_413,No_414,No_415,No_416,No_417,No_418,No_419,No_420,No_421,No_422,No_423,No_424,No_425,No_426,No_427,No_428,No_429,No_430,No_431,No_432,No_433,No_434,No_435,No_436,No_437,No_438,No_439,No_440,No_441,No_442,No_443,No_444,No_445,No_446,No_447,No_448,No_449,No_453,No_454,No_455,No_456,No_457,No_458,No_459,No_460,No_461,No_462,No_463,No_464,No_465,No_466,No_467,No_468,No_470,No_471,No_472,No_473,No_474,No_475,No_476,No_477,No_478,No_479,No_480,No_481,No_482,No_483,No_488,No_492,No_495,No_496,No_497,No_498,No_499,No_500,No_501,No_502,No_503,No_504,No_505,No_507,No_508,No_509,No_511,No_512,No_513,No_514,No_515,No_516,No_517,No_518,No_519,No_520,No_521,No_522,No_523,No_524,No_525,No_526,No_527,No_528,No_529,No_530,No_531,No_532,No_533,No_534,No_535,No_536,No_537,No_538,No_539,No_540,No_541,No_542,No_543,No_544,No_545,No_546,No_547,No_548,No_550,No_551)
 
 #### Writing the table of results as csv file #### 
-write.csv(combinePointValue,"combinedPointValue.csv", row.names=FALSE, quote=FALSE)
+write.csv(combinePointValue,"C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\combinedPointValue.csv", row.names=FALSE, quote=FALSE)
 
-### autodetectPython() 
-### If you run above. You can get the path of python. Input $pythonExePath to the next connection path. ####
+####Plotting cumulative frequency of tephra fall and Prototype hazard curve ####
+library(zoo)
+library(pracma)
+library(sem)
 
-### Connecting python ####
-pyConnect("C:\\Users\\Your_dir\\Anaconda3\\python.exe") #### Please set your dirctry installed python ###
+####Please select place of name where you would like to draw a hazard curve. ###
+Loc <- "Tokyo" #### ie.,"Naha","Sendai" etc.  
 
-if (pyIsConnected() ){pyExec('F = "Tokyo"')} ### Please input locality name where you want to make a hazard curve ####
+df1 <- read.csv('C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\combinedPointValue.csv')
+df2 <- read.csv('C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\No_and_age_list_fin.csv')
 
-if (pyIsConnected() ){pyExecfile('Tephra_fall_Hazard.py')}
+N_Place <- as.numeric(length(Name))
+
+df3 <- na.fill(df1,0)
+df3 <- df3[1:N_Place,2:504]
+
+rownames(df3) <- Name
+df4 <- as.numeric(df3[Loc,])
+df5 <- df2$Year_ka
+df7 <- df2$Tephra_Name..Tiff_file_name.
+df9 <- df2$Volume
+df10 <- df2$VEI
+df11 <- t(df3)
+df8 <- data.frame(Year_ka=df5,Tephra_Name=df7, Volume=df9, VEI=df10) # Ash fall history
+df12 <- cbind(df8, df11[1:503,1:N_Place])
+df6 <- data.frame(Year_ka=df5,Ashfall=df4)
+
+write.csv(df12,'C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\Tephra_fall_history.csv')
+
+### Here, we analyze the tephra fall history during the 150 ka! ### 
+### If the database will be extended to older events, this analysing should be revised.####
+
+df_bool1 <- df6[df6$Year_ka >=0 & df6$Year_ka <10,]
+df_bool2 <- df6[df6$Year_ka >=10 & df6$Year_ka <20,]
+df_bool3 <- df6[df6$Year_ka >=20 & df6$Year_ka <30,]
+df_bool4 <- df6[df6$Year_ka >=30 & df6$Year_ka<40,]
+df_bool5 <- df6[df6$Year_ka >=40 & df6$Year_ka<50,]
+df_bool6 <- df6[df6$Year_ka >=50 & df6$Year_ka<60,]
+df_bool7 <- df6[df6$Year_ka >=60 & df6$Year_ka<70,]
+df_bool8 <- df6[df6$Year_ka >=70 & df6$Year_ka <80,]
+df_bool9 <- df6[df6$Year_ka >=80 & df6$Year_ka <90,]
+df_bool10 <- df6[df6$Year_ka >=90 & df6$Year_ka <100,]
+df_bool11 <- df6[df6$Year_ka >=100 & df6$Year_ka<110,]
+df_bool12 <- df6[df6$Year_ka >=110 & df6$Year_ka <120,]
+df_bool13 <- df6[df6$Year_ka >=120 & df6$Year_ka <130,]
+df_bool14 <- df6[df6$Year_ka >=130 & df6$Year_ka <140,]
+df_bool15 <- df6[df6$Year_ka >=140 & df6$Year_ka<150,]
+df_boolTot <- df6[df6$Year_ka<150,]
+
+W3 <- linspace(10, 3000, 300)
+W2 <- c(0.01, 0.1, 1)
+W <- c(W2, W3)
+
+J1 <- data.frame()
+J2 <- data.frame()
+J3 <- data.frame()
+J4 <- data.frame()
+J5 <- data.frame()
+J6 <- data.frame()
+J7 <- data.frame()
+J8 <- data.frame()
+J9 <- data.frame()
+J10 <- data.frame()
+J11 <- data.frame()
+J12 <- data.frame()
+J13 <- data.frame()
+J14 <- data.frame()
+J15 <- data.frame()
+JTot <- data.frame()
+
+for (i in W){
+  Fi <- df_bool1$Ashfall > i
+  Fin1 <- sum(Fi)
+  df <- data.frame(Fin1)
+  J1 <- rbind(J1, df)
+}
+
+for (i in W){
+  Fi <- df_bool2$Ashfall > i
+  Fin2 <- sum(Fi)
+  df <- data.frame(Fin2)
+  J2 <- rbind(J2, df)
+}
+
+for (i in W){
+  Fi <- df_bool3$Ashfall > i
+  Fin3 <- sum(Fi)
+  df <- data.frame(Fin3)
+  J3 <- rbind(J3, df)
+}
+
+for (i in W){
+  Fi <- df_bool4$Ashfall > i
+  Fin4 <- sum(Fi)
+  df <- data.frame(Fin4)
+  J4 <- rbind(J4, df)
+}
+
+for (i in W){
+  Fi <- df_bool5$Ashfall > i
+  Fin5 <- sum(Fi)
+  df <- data.frame(Fin5)
+  J5 <- rbind(J5, df)
+}
+
+for (i in W){
+  Fi <- df_bool6$Ashfall > i
+  Fin6 <- sum(Fi)
+  df <- data.frame(Fin6)
+  J6 <- rbind(J6, df)
+}
+
+for (i in W){
+  Fi <- df_bool7$Ashfall > i
+  Fin7 <- sum(Fi)
+  df <- data.frame(Fin7)
+  J7 <- rbind(J7, df)
+}
+
+for (i in W){
+  Fi <- df_bool8$Ashfall > i
+  Fin8 <- sum(Fi)
+  df <- data.frame(Fin8)
+  J8 <- rbind(J8, df)
+}
+
+for (i in W){
+  Fi <- df_bool9$Ashfall > i
+  Fin9 <- sum(Fi)
+  df <- data.frame(Fin9)
+  J9 <- rbind(J9, df)
+}
+
+for (i in W){
+  Fi <- df_bool10$Ashfall > i
+  Fin10 <- sum(Fi)
+  df <- data.frame(Fin10)
+  J10 <- rbind(J10, df)
+}
+
+for (i in W){
+  Fi <- df_bool11$Ashfall > i
+  Fin11 <- sum(Fi)
+  df <- data.frame(Fin11)
+  J11 <- rbind(J11, df)
+}
+
+for (i in W){
+  Fi <- df_bool12$Ashfall > i
+  Fin12 <- sum(Fi)
+  df <- data.frame(Fin12)
+  J12 <- rbind(J12, df)
+}
+
+for (i in W){
+  Fi <- df_bool13$Ashfall > i
+  Fin13 <- sum(Fi)
+  df <- data.frame(Fin13)
+  J13 <- rbind(J13, df)
+}
+
+for (i in W){
+  Fi <- df_bool14$Ashfall > i
+  Fin14 <- sum(Fi)
+  df <- data.frame(Fin14)
+  J14 <- rbind(J14, df)
+}
+
+for (i in W){
+  Fi <- df_bool15$Ashfall > i
+  Fin15 <- sum(Fi)
+  df <- data.frame(Fin15)
+  J15 <- rbind(J15, df)
+}
+
+for (i in W){
+  Fi <- df_boolTot$Ashfall > i
+  FinTot <- sum(Fi)
+  df <- data.frame(FinTot)
+  JTot <- rbind(JTot, df)
+}
+
+JTot1 <- cbind(J1,J2)
+JTot2 <- cbind(JTot1,J3)
+JTot3 <- cbind(JTot2,J4)
+JTot4 <- cbind(JTot3,J5)
+JTot5 <- cbind(JTot4,J6)
+JTot6 <- cbind(JTot5,J7)
+JTot7 <- cbind(JTot6,J8)
+JTot8 <- cbind(JTot7,J9)
+JTot9 <- cbind(JTot8,J10)
+JTot10 <- cbind(JTot9,J11)
+JTot11 <- cbind(JTot10,J12)
+JTot12 <- cbind(JTot11,J13)
+JTot13 <- cbind(JTot12,J14)
+JTot14 <- cbind(JTot13,J15)
+
+Z <- data.frame()
+Zav <- data.frame()
+Parameters <- data.frame()
+Prob1 <- data.frame()
+Prob2 <- data.frame()
+Prob3 <- data.frame()
+Conf_95 <- data.frame()
+av <- data.frame()
+Pc <- data.frame()
+
+n <- length(W)
+n2 <- linspace(1, n, n)
+
+poisson <- function(k, lamb){
+  value <- (lamb^k/factorial(k)*exp(-lamb))
+  return(value)
+}
+
+alpha <- 0.95
+data <- data.frame()
+
+for (i in n2){
+  data1 <- as.numeric(J1[i,])
+  Zav1 <- mean(data1)/10000 # recent 10 ka
+  data2 <- as.numeric(JTot1[i,]) # recent 20 ka
+  Zav2 <- mean(data2)/10000
+  data3 <- as.numeric(JTot2[i,]) # recent 30 ka
+  Zav3 <- mean(data3)/10000
+  data4 <- as.numeric(JTot3[i,]) # recent 40 ka
+  Zav4 <- mean(data4)/10000
+  data5 <- as.numeric(JTot4[i,]) # recent 50 ka
+  Zav5 <- mean(data5)/10000
+  data6 <- as.numeric(JTot5[i,]) # recent 60 ka
+  Zav6 <- mean(data6)/10000
+  data7 <- as.numeric(JTot6[i,]) # recent 70 ka
+  Zav7 <- mean(data7)/10000
+  data8 <- as.numeric(JTot7[i,]) # recent 80 ka
+  Zav8 <- mean(data8)/10000
+  data9 <- as.numeric(JTot8[i,]) # recent 90 ka
+  Zav9 <- mean(data9)/10000
+  data10 <- as.numeric(JTot9[i,]) # recent 100 ka
+  Zav10 <- mean(data10)/10000
+  data11 <- as.numeric(JTot10[i,]) # recent 110 ka
+  Zav11 <- mean(data11)/10000
+  data12 <- as.numeric(JTot11[i,]) # recent 120 ka
+  Zav12 <- mean(data12)/10000
+  data13 <- as.numeric(JTot12[i,]) # recent 130 ka
+  Zav13 <- mean(data13)/10000
+  data14 <- as.numeric(JTot13[i,]) # recent 140 ka
+  Zav14 <- mean(data14)/10000
+  data15 <- as.numeric(JTot14[i,]) # recent 150 ka
+  Zav15 <- mean(data15)/10000
+  Zav16 <- rbind(Zav1,Zav2)
+  Zav17 <- rbind(Zav16,Zav3)
+  Zav18 <- rbind(Zav17,Zav4)
+  Zav19 <- rbind(Zav18,Zav5)
+  Zav20 <- rbind(Zav19,Zav6)
+  Zav21 <- rbind(Zav20,Zav7)
+  Zav22 <- rbind(Zav21,Zav8)
+  Zav23 <- rbind(Zav22,Zav9)
+  Zav24 <- rbind(Zav23,Zav10)
+  Zav25 <- rbind(Zav24,Zav11)
+  Zav26 <- rbind(Zav25,Zav12)
+  Zav27 <- rbind(Zav26,Zav13)
+  Zav28 <- rbind(Zav27,Zav14)
+  Zav29 <- rbind(Zav28,Zav15)
+  mean2 <- mean(Zav29)
+  mean_val <- data.frame(mean2)
+  av <- rbind(av, mean_val)
+  sem_val <- sd(Zav29)/sqrt(15)
+  ci <- qt(alpha, df=14)*sem_val
+  ci2 <- data.frame(ci)
+  Conf_95 <- rbind(Conf_95, ci2)
+}
+
+Conf_95_max <- av + Conf_95
+Conf_95_min <- av - Conf_95
+
+###Cumulative frequency of tephra fall for the past 150 ka
+Cum_freq_150 <- data.frame()
+n <- linspace(1,303,303)
+for (i in n){
+    J <- JTot14[i,]
+    Cum <- sum(J)
+    Cum_freq_150 <- rbind(Cum_freq_150, Cum)
+}
+
+###Calculation of annual probability of exceedance
+poisson2 <- function(t, lamb2){
+  value <- 1 - exp(-lamb2*t)
+}
+
+#### CDF of annual probability.
+for (i in av){                                
+  Pc1 <- poisson(0, i)
+  Pc2 <- data.frame(Pc1)
+  Pc <- rbind(Pc, Pc2)
+}
+
+#### mean annual exceeding probability.
+for (i in av){                               
+  a <- poisson2(1, i)
+  a2 <- data.frame(a)
+  Prob1 <- rbind(Prob1, a2)
+}
+
+#### annual exceeding probability of max. Conf_95.
+for (i in Conf_95_max){                       
+  a1 <- poisson2(1, i)
+  a2 <- data.frame(a1)
+  Prob2 <- rbind(Prob2, a2)
+}
+
+#### annual exceeding probability of min. Conf_95.
+for (i in Conf_95_min){                       
+  a1 <- poisson2(1, i)
+  a2 <- data.frame(a1)
+  Prob3 <- rbind(Prob3, a2)
+}
+
+Cum_freq_150ka <- cbind(W,Cum_freq_150)
+mean_values <- cbind(W,Prob1[,1])
+Conf_95_max <- cbind(W,Prob2[,1])
+Conf_95_min <- cbind(W,Prob3[,1])
+
+rezhaz <- data.frame()
+
+rezhaz <- cbind(Tephra_fall_load = W,AEP_mean = Prob1[,1],Conf_95_max=Prob2[,1],Conf_95_min=Prob3[,1])
+
+layout(matrix(1:2, ncol=2)) 
+plot(Cum_freq_150ka, type="l", log='x', xlab="Tephra fall load (kg/m^2)", ylab="Frequency", main="Cumulative frequency of tephra fall for the past 150ka", ylim=c(0,20)) #,xaxt="n",yaxt="n")
+plot(mean_values, type="l", log='xy', xlab="Tephra fall load (kg/m^2)", ylab="Pseudo Annual exceeding probability", main="Prototype hazard curve", ylim=c(10^-6,10^-3)) #,xaxt="n",yaxt="n")
+points(Conf_95_max, type="l", col="red")
+points(Conf_95_min, type="l", col="red")
+
 
 
 
