@@ -11,9 +11,34 @@ import matplotlib.pyplot as plt
 from scipy.special import factorial
 from scipy import stats
 
-F = "Tokyo"
+df1 = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/combinedPointValue.csv') 
+#### Please enter your directory. Don't change the last file name.
 
-df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
+df2 = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/No_and_age_list_fin.csv')
+#### Please enter your directory. Don't change the last file name.
+
+df3 = df1.fillna(0)
+df4 = df3.T
+
+df4.columns = df4.iloc[0]
+df5 = df4.drop(labels='Name')
+
+df6 = df5.reset_index()
+df6['index'] = pd.to_numeric(df6['index'].str.replace('No_', ''))
+
+df7 = df2.sort_values("No.")
+df8 = df6.sort_values("index")
+df9 = df8.set_index("index")
+df10 = df7.set_index("No.")
+
+df = pd.merge(df9, df10, how='outer', left_index=True, right_index=True)
+
+df.to_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
+
+### If you run the R script, you can skip line 14 to 36. Use below the script to delete '#' before df in line 39 ###
+#df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
+
+F = "Tokyo"
 
 df_bool1 = df.query('(Year_ka >=0)&(Year_ka <10)')
 df_bool2 = df.query('(Year_ka >=10)&(Year_ka <20)')
