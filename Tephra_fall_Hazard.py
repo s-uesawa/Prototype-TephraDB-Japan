@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from scipy.special import factorial
 from scipy import stats
 
-F = "Naha"
+F = "Tokyo"
 
 df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
 
