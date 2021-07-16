@@ -14,12 +14,13 @@ points <- rgdal::readOGR("PrefOffices.shp")  ### Reading shapefile of prefectura
 ### long <- c(26.2136, 31.56019, 33.23813)
 ### xy <- cbind(lat, long)
 
-### Give names of the positions. Please check the order of coordinate ###
-Name <- points@data$City_Name ####Names of cities where prefectural offices are lcated
-
 x <- points@data$X ## for Pref Offices
 y <- points@data$Y ## for Pref Offices
 xy <- cbind(x,y) ## for Pref Offices
+
+### Give names of the positions. Please check the order of coordinate ###
+### Example: Name <- data.frame(Name=c("Okinawa","Kagoshima","Miyazaki","Nagasaki"))
+Name <- points@data$City_Name #### Names of cities where prefectural offices are lcated
 
 ## Reading rasters of tephra distribution maps form database ####
 # 1000years
