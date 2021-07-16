@@ -8,19 +8,19 @@ See the publication in detail (Uesawa et al., submitted, Journal of Applied Volc
 
 Preparation for processing:
 1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions.
-2. Install Python 3 (I recommend using Anaconda). Please refer to the website https://www.anaconda.com/ for installation instructions. 
 
 Workflow using the Tephra database:
-1. Copy the folder entitled "TephraDB_Prototype_ver1" to your computer. The dataset can be downloaded at http://doi.org/10.5281/zenodo.3608346
+1. Copy the folder entitled "TephraDB_Prototype_ver1.1" to your computer. The dataset can be downloaded at http://doi.org/10.5281/zenodo.3608346
 2. Open the file entitled "Tephra_Hazard_Curve_Generator_011.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied.
 5. Set the locality name and coordinate.
-6. Run the entire script of R. (If you can not run the python with R, you can run the python script edited F = "Place name " where you want to draw the prototype hazard curve with spyder etc.)
+6. Run the entire script of R.
 
-cf) Plotting with python
+cf) Plotting with python for better scientific plots
 1. Install Python 3 (I recommend using Anaconda). Please refer to the website https://www.anaconda.com/ for installation instructions. 
-2. Open the file entitled "Tephra_fall_Hazard.py" and revise the directory to your path using a text editor. Then, put the file in the "TephraDB_Prototype_ver1" folder.
+2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter.py" and revise the directory to your path using a text editor. Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
+3. Edit F = "Place name " where you want to draw the prototype hazard curve with spyder etc in the python script.
 
 Workflow using ArcGIS:
 If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves using the Python Console of ArcGIS and view all the raster data of tephra distributions.
