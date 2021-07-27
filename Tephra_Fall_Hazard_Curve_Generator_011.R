@@ -2068,12 +2068,12 @@ Loc <- "Tokyo" #### ie.,"Naha","Sendai" etc.
 df1 <- read.csv('C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\combinedPointValue.csv')
 df2 <- read.csv('C:\\Users\\Your_directory\\TephraDB_Prototype_ver1.1\\No_and_age_list_fin.csv')
 
-N_Place <- as.numeric(length(Name))
+N_Place <- as.numeric(length(Name))  ## If you give Name using "Name <- data.frame(Name=c("names", "names",...))", please replace "Name$Name" instead of "Name".
 
 df3 <- na.fill(df1,0)
 df3 <- df3[1:N_Place,2:504]
 
-rownames(df3) <- Name
+rownames(df3) <- Name                ## If you give Name using "Name <- data.frame(Name=c("names", "names",...))", please replace "Name$Name" instead of "Name".
 df4 <- as.numeric(df3[Loc,])
 df5 <- df2$Year_ka
 df7 <- df2$Tephra_Name..Tiff_file_name.
