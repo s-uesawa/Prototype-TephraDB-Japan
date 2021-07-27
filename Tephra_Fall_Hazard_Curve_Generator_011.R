@@ -10,9 +10,9 @@ points <- rgdal::readOGR("PrefOffices.shp")  ### Reading shapefile of prefectura
 ### Set coordinate from a shapefile.
 
 #### You can input arbitrary locality x, y coordinate using below as well. ####
-### lat <- c(127.681, 130.5581, 134.6126)
-### long <- c(26.2136, 31.56019, 33.23813)
-### xy <- cbind(lat, long)
+### long <- c(127.681, 130.5581, 134.6126)
+### lat <- c(26.2136, 31.56019, 33.23813)
+### xy <- cbind(long, lat)
 
 x <- points@data$X ## for Pref Offices
 y <- points@data$Y ## for Pref Offices
