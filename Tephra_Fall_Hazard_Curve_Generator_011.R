@@ -22,7 +22,7 @@ xy <- cbind(x,y) ## for Pref Offices
 ### Example: Name <- data.frame(Name=c("Okinawa","Kagoshima","Miyazaki","Nagasaki"))
 Name <- points@data$City_Name #### Names of cities where prefectural offices are located
 
-## Reading rasters of tephra distribution maps form database ####
+## Reading rasters of tephra distribution maps form the database ####
 # 1000years
 r1 <- rgdal::readGDAL("Suwanose_SUM.tif")
 r2 <- rgdal::readGDAL("My_a2.tif")
