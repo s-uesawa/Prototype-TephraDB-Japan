@@ -19,7 +19,8 @@ y <- points@data$Y ## for Pref Offices
 xy <- cbind(x,y) ## for Pref Offices
 
 ### Give names of the positions. Please check the order of coordinate ###
-### Example: Name <- data.frame(Name=c("Okinawa","Kagoshima","Miyazaki","Nagasaki"))
+### Example: Name <- data.frame(Name=c("Okinawa","Kagoshima","Miyazaki","Nagasaki")) 
+## If you give Name using "Name <- data.frame(Name=c("names", "names",...))", please replace "Name$Name" instead of "Name" at line 2076.
 Name <- points@data$City_Name #### Names of cities where prefectural offices are located
 
 ## Reading rasters of tephra distribution maps form the database ####
