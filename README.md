@@ -12,7 +12,7 @@ Preparation for processing:
 
 Workflow using the R script:
 1. Copy the folder entitled "TephraDB_Prototype_ver1.1" to your computer. The dataset can be downloaded at https://doi.org/10.5281/zenodo.5109160
-2. Open the file entitled "Tephra_Hazard_Curve_Generator_011.r" with R.
+2. Open the file entitled "Tephra_Hazard_Curve_Generator_012.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Revise the directory to the path of the folder that you copied (lines 6, 2058, 2068, 2069, and 2087).
 5. Set the locality name and coordinate.
@@ -21,7 +21,7 @@ Workflow using the R script:
 
 cf.) Plotting with python for better scientific plots:
 1. Install Python 3 (I recommend using Anaconda). Please refer to the website https://www.anaconda.com/ for installation instructions. 
-2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_011.py" and revise the directory to your path using a text editor (line 14, 17, 36 and 39). Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
+2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_012.py" and revise the directory to your path using a text editor (line 14, 17, 36 and 39). Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
 4. Edit F = "Place name (default "Tokyo") " (line 41) where you want to draw the prototype hazard curve with spyder etc..
 5. Run the entire script of Python.
 
