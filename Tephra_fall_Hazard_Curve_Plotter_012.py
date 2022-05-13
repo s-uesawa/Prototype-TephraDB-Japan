@@ -36,7 +36,7 @@ df = pd.merge(df9, df10, how='outer', left_index=True, right_index=True)
 df.to_csv('C:/TephraDB_Prototype_ver1.1/Tephra_Fall_History_012.csv') ## Please input your directory
 
 ### If you run the R script, you can skip lines 14 through 36 and use the following script, which removes the "#" in front of the df in line 39. ###
-#df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History.csv') ## Please input your directory
+#df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History_012.csv') ## Please input your directory
 
 F = "Tokyo"
 
