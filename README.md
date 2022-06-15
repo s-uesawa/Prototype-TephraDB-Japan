@@ -33,3 +33,6 @@ If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves usi
 5. Write down the attribute table of "PrefOffices.shp" as csv to the "TephraDB_Prototype_ver1.1" folder entitled "combinedPointValue_012.csv".
 6. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_012.py" and revise the directory to your path using a text editor.
 11. Run the script with the Python Console of ArcGIS.
+
+Disclaimer:
+CRIEPI, the original data acquirer/creator, and the database administrator shall not be held liable for any loss or damage arising from the use of this database.
