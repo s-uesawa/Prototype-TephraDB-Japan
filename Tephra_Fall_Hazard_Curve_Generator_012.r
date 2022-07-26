@@ -2363,7 +2363,7 @@ Conf_95_min <- cbind(W,Conf_95_min)
 
 ###Data Table of mean annual frequency of exceedance
 reshaz <- data.frame()
-reshaz <- cbind(Tephra_fall_load = W,AEP_mean = av,Conf_95_max,Conf_95_min)
+reshaz <- cbind(Tephra_fall_thickness = W,AFE_mean = av,Conf_95_max,Conf_95_min)
 
 # Graph generating a number of exceeding tephra thickness for the past 150,000 and a mean annual frequency of exceedance
 layout(matrix(1:2, ncol=2)) 
