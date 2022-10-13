@@ -2367,7 +2367,7 @@ reshaz <- cbind(Tephra_fall_thickness = W,AFE_mean = mean_values[,2],Conf_95_max
 
 # Graph generating a number of exceeding tephra thickness for the past 150,000 and a mean annual frequency of exceedance
 layout(matrix(1:2, ncol=2)) 
-plot(Cum_freq_150, type="l", log='x', xlab="Tephra fall thickness (mm)", ylab="Number", main="Number of exceeding tephra fall thicknesses for the past 150ka", ylim=c(0,25)) #,xaxt="n",yaxt="n")
+plot(Cum_freq_150, type="l", log='x', xlab="Tephra fall thickness (mm)", ylab="Number of events", main="Number of exceeding tephra fall thicknesses for the past 150ka", ylim=c(0,25)) #,xaxt="n",yaxt="n")
 plot(mean_values, type="l", log='xy', xlab="Tephra fall thickness (mm)", ylab="Mean annual frequency of exceedance", main="Prototype hazard curve", ylim=c(10^-6,10^-3)) #,xaxt="n",yaxt="n")
 points(Conf_95_max, type="l", col="red")
 points(Conf_95_min, type="l", col="red")
