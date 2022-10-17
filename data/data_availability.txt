@@ -1,0 +1,6 @@
+
+Please download raster and related data from https://doi.org/10.5281/zenodo.5109160, and put the data into "data" folder.
+Do not delete "README.txt" . This data is also used in the GUI application.
+
+降灰分布などのラスターデータをhttps://doi.org/10.5281/zenodo.5109160からダウンロードし、「data」フォルダーにコピーしてください。
+"README.txt"は消さないでください。これもGUIアプリに使用されます。
