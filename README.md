@@ -44,5 +44,5 @@ Affiliation: Central Research Institute of Electric Power Industory, Nuclear Ris
 Source Code License: GPL. Use at your own risk.
 
 Reference summary:
-R-project: https://www.r-project.org/
-Python: https://www.anaconda.com/
+  R-project: https://www.r-project.org/
+  Python: https://www.anaconda.com/
