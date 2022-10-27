@@ -42,3 +42,7 @@ R is a free software environment for statistical computiong and graphics (Visit 
 Author: Shimpei Uesawa (contact: uesawa<at>criepi.denken.or.jp) <at> -> @
 Affiliation: Central Research Institute of Electric Power Industory, Nuclear Risk Research Center, Abiko, Chiba, Japan
 Source Code License: GPL. Use at your own risk.
+
+Reference summary:
+R-project: https://www.r-project.org/
+Python: https://www.anaconda.com/
