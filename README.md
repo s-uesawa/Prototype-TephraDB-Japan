@@ -5,7 +5,6 @@ All the scripts were written by Shimpei Uesawa@CRIEPI, Japan.
 
 This is the toolkit of drawing cumulative frequency curves and hazard curves for assessing the tephra fall load hazard with tephra fall database in Japan. 
 See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; https://dx.doi.org/10.21203/rs.2.23106/v1). 
-The results at 47 prefectural offices are available at https://doi.org/10.5281/zenodo.3608350.
 
 Preparation for processing:
 1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions.
