@@ -3,7 +3,7 @@
 All the scripts were written by Shimpei Uesawa@CRIEPI, Japan. 
 (Last update: 13, May 2022, Please see tags for previous version.)
 
-This is the toolkit of drawing cumulative frequency curves and hazard curves for assessing the tephra fall load hazard with tephra fall database in Japan. 
+This is the toolkit of drawing cumulative frequency curves and hazard curves for assessing the tephra fall hazard in thickness (mm) with tephra fall database in Japan. 
 See the publication in detail (Uesawa et al., submitted, Journal of Applied Volcanology; https://dx.doi.org/10.21203/rs.2.23106/v1). 
 
 Preparation for processing:
