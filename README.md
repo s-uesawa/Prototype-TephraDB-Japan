@@ -1,13 +1,13 @@
 # Prototype-TephraDB-Japan
 
 All the scripts were written by Shimpei Uesawa@CRIEPI, Japan. 
-(Last update: 13, May 2022, Please see tags for previous version.)
+(Last update: 13, Dec 2022, Please see tags for previous version.)
 
 This is the toolkit of drawing cumulative frequency curves and hazard curves for assessing the tephra fall hazard in thickness (mm) with tephra fall database in Japan. 
 See the publication in detail (Uesawa et al., 2022, Journal of Applied Volcanology; https://appliedvolc.biomedcentral.com/articles/10.1186/s13617-022-00126-x). 
 
 Preparation for processing:
-1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions.
+1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions. R is recommended for version 4.1.0 or earlier.
 
 Workflow using the R script:
 1. Copy the folder entitled "TephraDB_Prototype_ver1.1" to your computer (directly under "C:"). The dataset can be downloaded at https://doi.org/10.5281/zenodo.5109160
