@@ -304,6 +304,6 @@ ax2.set_ylim(0, 25)
 ax2.set_xlim(0.1,3000)
 ax2.set_title(F)
 ax2.set_xlabel('Tephra fall thickness (mm)')
-ax2.set_ylabel('Number of exceeding tephra fall thickness')
+ax2.set_ylabel('Number of events')
 
 fig.show()
