@@ -11,7 +11,7 @@ Preparation for processing:
 
 Workflow using the R script:
 1. Copy the folder entitled "TephraDB_Prototype_ver1.2" to your computer (directly under "C:"). The dataset can be downloaded at https://doi.org/10.5281/zenodo.7672678
-2. Open the file entitled "Tephra_Hazard_Curve_Generator_012.r" with R.
+2. Open the file entitled "Tephra_Hazard_Curve_Generator_120.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Set the locality name and coordinate.
 5. Edit Loc <- "Place name (default "Tokyo") " (line 2067) where you want to draw the prototype hazard curve.
@@ -19,7 +19,7 @@ Workflow using the R script:
 
 cf.) Plotting with python for better scientific plots:
 1. Install Python 3 (I recommend using Anaconda). Please refer to the website https://www.anaconda.com/ for installation instructions. 
-2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_012.py" and revise the directory to your path using a text editor (line 14, 17, 36 and 39). Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
+2. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_120.py" and revise the directory to your path using a text editor (line 14, 17, 36 and 39). Then, put the file in the "TephraDB_Prototype_ver1.1" folder.
 4. Edit F = "Place name (default "Tokyo") " (line 41) where you want to draw the prototype hazard curve with spyder etc..
 5. Run the entire script of Python.
 
@@ -30,7 +30,7 @@ If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves usi
 3. Open the file entitled "Extract_MultiValues_TO_Points_ver2.py" in the folder entitled "For ArcGIS" using a text editor.
 4. Copy and paste to Python Console of ArcGIS and run the script. If you use your locality shapefile, revise the PointFeature file name to your file name in the text.
 5. Write down the attribute table of "PrefOffices.shp" as csv to the "TephraDB_Prototype_ver1.1" folder entitled "combinedPointValue_012.csv".
-6. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_012.py" and revise the directory to your path using a text editor.
+6. Open the file entitled "Tephra_fall_Hazard_curve_Plotter_120.py" and revise the directory to your path using a text editor.
 11. Run the script with the Python Console of ArcGIS.
 
 Disclaimer:
