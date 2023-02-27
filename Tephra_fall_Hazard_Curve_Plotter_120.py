@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 from scipy.special import factorial
 from scipy import stats
 
-df1 = pd.read_csv('C:/TephraDB_Prototype_ver1.1/combinedPointValue_012.csv') 
+df1 = pd.read_csv('C:/TephraDB_Prototype_ver1.2/combinedPointValue_012.csv') 
 #### Please enter your directory. Don't change the foler and the last file name.
 
-df2 = pd.read_csv('C:/TephraDB_Prototype_ver1.1/No_and_age_list_fin.csv')
+df2 = pd.read_csv('C:/TephraDB_Prototype_ver1.2/No_and_age_list_fin.csv')
 #### Please enter your directory. Don't change the foler and the last file name.
 
 df3 = df1.fillna(0)
@@ -33,10 +33,10 @@ df10 = df7.set_index("No.")
 
 df = pd.merge(df9, df10, how='outer', left_index=True, right_index=True)
 
-df.to_csv('C:/TephraDB_Prototype_ver1.1/Tephra_Fall_History_012.csv') ## Please input your directory
+df.to_csv('C:/TephraDB_Prototype_ver1.2/Tephra_Fall_History_012.csv') ## Please input your directory
 
 ### If you run the R script, you can skip lines 14 through 36 and use the following script, which removes the "#" in front of the df in line 39. ###
-#df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.1/Tephra_Fall_History_012.csv') ## Please input your directory
+#df = pd.read_csv('C:/Users/Your_directory/TephraDB_Prototype_ver1.2/Tephra_Fall_History_012.csv') ## Please input your directory
 
 F = "Tokyo"
 
