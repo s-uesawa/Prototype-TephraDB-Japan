@@ -3,7 +3,7 @@ library(raster)
 library(rgdal)
 library(sp)
 
-setwd("C:\\TephraDB_Prototype_ver1.1") ### Please place the folder named "TephraDB_Prototype_ver1.2" directly under "C:".
+setwd("C:\\TephraDB_Prototype_ver1.2") ### Please place the folder named "TephraDB_Prototype_ver1.2" directly under "C:".
 
 points <- rgdal::readOGR("PrefOffices.shp")  ### Reading shapefile of prefectural offices prepared by GIS ###
 
