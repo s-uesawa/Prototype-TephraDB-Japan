@@ -1,7 +1,7 @@
 # Prototype-TephraDB-Japan
 
 All the scripts were written by Shimpei Uesawa@CRIEPI, Japan. 
-(Last update: 27, Feb 2022, Please see tags for previous version.)
+(Last update: 27, Feb 2023, Please see tags for previous version.)
 
 This is the toolkit of drawing cumulative frequency curves and hazard curves for assessing the tephra fall hazard in thickness (mm) with tephra fall database in Japan. 
 See the publication in detail (Uesawa et al., 2022, Journal of Applied Volcanology; https://appliedvolc.biomedcentral.com/articles/10.1186/s13617-022-00126-x). 
