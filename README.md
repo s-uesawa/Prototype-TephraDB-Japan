@@ -36,7 +36,7 @@ If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves usi
 Disclaimer:
 CRIEPI, the original data acquirer/creator, and the database administrator shall not be held liable for any loss or damage arising from the use of this database.
 
-R is a free software environment for statistical computiong and graphics (Visit at https://www.r-project.org/ for more detail ).
+R is a free software environment for statistical computing and graphics (Visit at https://www.r-project.org/ for more detail ).
 
 Author: Shimpei Uesawa (contact: uesawa<at>criepi.denken.or.jp) <at> -> @
 Affiliation: Central Research Institute of Electric Power Industory, Nuclear Risk Research Center, Abiko, Chiba, Japan
