@@ -10,7 +10,7 @@ Preparation for processing:
 1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions. We recommend to use version 4.1.0 or earlier.
 
 Workflow using the R script:
-1. Copy the folder entitled "TephraDB_Prototype_ver1.3" to your computer (directly under "C:"). The dataset can be downloaded at https://doi.org/10.5281/zenodo.7672678
+1. Copy the folder entitled "TephraDB_Prototype_ver1.3" to your computer (directly under "C:"). The dataset can be downloaded at https://zenodo.org/record/7857457
 2. Open the file entitled "Tephra_Hazard_Curve_Generator_120.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Set the locality name and coordinate.
