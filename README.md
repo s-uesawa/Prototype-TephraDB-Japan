@@ -10,7 +10,7 @@ Preparation for processing:
 1. Install R (Statistical Computing). Please refer to the website https://www.r-project.org/ for installation instructions. We recommend to use version 4.1.0 or earlier.
 
 Workflow using the R script:
-1. Copy the folder entitled "TephraDB_Prototype_ver1.3" to your computer (directly under "C:"). The dataset can be downloaded at https://zenodo.org/record/7857457
+1. Copy the folder entitled "TephraDB_Prototype_ver1.4" to your computer (directly under "C:"). The dataset can be downloaded at [https://zenodo.org/record/7857457](https://doi.org/10.5281/zenodo.10846798)
 2. Open the file entitled "Tephra_Hazard_Curve_Generator_120.r" with R.
 3. Install all the libraries that you need. See the script.
 4. Set the locality name and coordinate.
@@ -25,7 +25,7 @@ cf.) Plotting with python for better scientific plots:
 
 Workflow using ArcGIS:
 If you have ArcGIS Spatial Analyst Tools, you can generate the hazard curves using the Python Console of ArcGIS and view all the raster data of tephra distributions.
-1. Copy the folder entitled "TephraDB_Prototype_ver1.3" to your computer. 
+1. Copy the folder entitled "TephraDB_Prototype_ver1.4" to your computer. 
 2. Open all the raster data and shapefiles ("PrefOffices.shp") with ArcGIS in the folder entitled "TephraDB_Prototype_ver1.3". Any locality shapefile can be used for the raster sampling.
 3. Open the file entitled "Extract_MultiValues_TO_Points_ver2.py" in the folder entitled "For ArcGIS" using a text editor.
 4. Copy and paste to Python Console of ArcGIS and run the script. If you use your locality shapefile, revise the PointFeature file name to your file name in the text.
